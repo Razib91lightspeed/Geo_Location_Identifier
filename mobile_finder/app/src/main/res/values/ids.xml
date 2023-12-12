@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="scanButton" type="id" />
+    <item name="scannedLocationLabel" type="id" />
+    <item name="tableLayout" type="id" />
+    <item name="scannedLatitude" type="id" />
+    <item name="scannedLongitude" type="id" />
+    <item name="scannedLocationInfo" type="id" />
+    <item name="scannedLocationAddressLabel" type="id" />
+    <item name="myLocationLabel" type="id" />
+    <item name="scannedLocationAddressInfo" type="id" />
+    <item name="myLocationTable" type="id" />
+    <item name="myLocationLatitude" type="id" />
+    <item name="myLocationLongitude" type="id" />
+    <item name="myAddressLabel" type="id" />
+    <item name="myAddressInfo" type="id" />
+    <item name="distanceLabel" type="id" />
+    <item name="distanceInfo" type="id" />
+    <item name="scannedLocationAddressCard" type="id" />
+    <item name="myAddressCard" type="id" />
+    <item name="distanceCard" type="id" />
+</resources>

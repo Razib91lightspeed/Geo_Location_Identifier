@@ -1,0 +1,339 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <Button
+        android:id="@+id/scanButton"
+        android:layout_width="wrap_content"
+    android:layout_height="64dp"
+    android:layout_marginStart="99dp"
+    android:layout_marginTop="32dp"
+    android:layout_marginEnd="99dp"
+    android:text="Click to Scan"
+    android:textSize="18sp"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent" />
+
+
+
+    <TextView
+        android:id="@+id/scannedLocationLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Scanned Location"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/scanButton" />
+
+    <TableLayout
+        android:id="@+id/tableLayout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/scannedLocationLabel"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="16dp"
+        android:paddingStart="50dp"
+        android:paddingEnd="50dp">
+
+        <TableRow>
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:text="Latitude"
+                android:gravity="center"
+                android:padding="4dp"
+                android:background="@android:color/darker_gray"
+                android:textColor="#FFFFFF" />
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:text="Longitude"
+                android:gravity="center"
+                android:padding="4dp"
+                android:background="@android:color/darker_gray"
+                android:textColor="#FFFFFF" />
+        </TableRow>
+
+        <TableRow>
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:id="@+id/scannedLatitude"
+                android:padding="4dp"
+                android:gravity="center"
+                android:background="@android:color/background_light"
+                android:textColor="#000000" />
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:id="@+id/scannedLongitude"
+                android:padding="4dp"
+                android:gravity="center"
+                android:background="@android:color/background_light"
+                android:textColor="#000000" />
+        </TableRow>
+    </TableLayout>
+
+    <TextView
+        android:id="@+id/scannedLocationInfo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tableLayout" />
+
+    <TextView
+        android:id="@+id/scannedLocationAddressLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="6dp"
+        android:text="Scanned Location Address"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/scannedLocationInfo" />
+
+    <!-- Box to hold scanned location address -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/scannedLocationAddressCard"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="50dp"
+        app:cardBackgroundColor="@android:color/white"
+        app:cardElevation="4dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/scannedLocationAddressLabel">
+
+        <TextView
+            android:id="@+id/scannedLocationAddressInfo"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="16dp"
+            android:text=""
+            android:gravity="center"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.cardview.widget.CardView>
+
+
+
+
+
+    <TextView
+        android:id="@+id/myLocationLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="My Location"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/scannedLocationAddressCard" />
+
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/extractedLocationCard"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="50dp"
+        app:cardBackgroundColor="@android:color/white"
+        app:cardElevation="4dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/distanceCard">
+
+        <!-- TableLayout to hold extracted Latitude and Longitude -->
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:stretchColumns="0,1">
+            <TableRow>
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:id="@+id/extractedLatitudeTextView"
+                    android:text=" Latitude Side"
+                    android:gravity="center"
+                    android:padding="4dp"
+                    android:background="@android:color/background_light"
+                    android:textColor="#000000" />
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:id="@+id/extractedLongitudeTextView"
+                    android:text="Longitude Side"
+                    android:gravity="center"
+                    android:padding="4dp"
+                    android:background="@android:color/background_light"
+                    android:textColor="#000000" />
+            </TableRow>
+        </TableLayout>
+    </androidx.cardview.widget.CardView>
+
+
+
+
+
+    <TextView
+        android:id="@+id/myLocationDetailsLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text=" "
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/scannedLocationAddressCard" />
+
+    <!-- Box to hold the latitude and longitude information for "My Location" -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/myLocationCard"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="50dp"
+        app:cardBackgroundColor="@android:color/white"
+        app:cardElevation="4dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/myLocationDetailsLabel">
+
+        <!-- TableLayout to hold Latitude and Longitude -->
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:stretchColumns="0,1">
+            <TableRow>
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:text="Latitude"
+                    android:gravity="center"
+                    android:padding="4dp"
+                    android:background="@android:color/darker_gray"
+                    android:textColor="#FFFFFF" />
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:text="Longitude"
+                    android:gravity="center"
+                    android:padding="4dp"
+                    android:background="@android:color/darker_gray"
+                    android:textColor="#FFFFFF" />
+            </TableRow>
+            <TableRow>
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:id="@+id/myLocationLatitude"
+                    android:padding="4dp"
+                    android:gravity="center"
+                    android:background="@android:color/background_light"
+                    android:textColor="#000000" />
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:id="@+id/myLocationLongitude"
+                    android:padding="4dp"
+                    android:gravity="center"
+                    android:background="@android:color/background_light"
+                    android:textColor="#000000" />
+            </TableRow>
+        </TableLayout>
+    </androidx.cardview.widget.CardView>
+
+    <!-- Title for your address -->
+    <TextView
+        android:id="@+id/myAddressLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="My Address"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/myLocationCard" />
+
+    <!-- Box to hold your address -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/myAddressCard"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="50dp"
+        app:cardBackgroundColor="@android:color/white"
+        app:cardElevation="4dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/myAddressLabel">
+
+        <TextView
+            android:id="@+id/myAddressInfo"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="16dp"
+            android:text=""
+            android:gravity="center"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.cardview.widget.CardView>
+
+
+
+
+    <TextView
+        android:id="@+id/distanceLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Distance of scanned location from my location"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/myAddressCard" />
+
+    <!-- Box to hold the distance -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/distanceCard"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="50dp"
+        app:cardBackgroundColor="@android:color/white"
+        app:cardElevation="4dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/distanceLabel">
+
+        <TextView
+            android:id="@+id/distanceInfo"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="16dp"
+            android:text=""
+            android:gravity="center"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.cardview.widget.CardView>
+
+    <!-- New Box to hold extracted latitude and longitude -->
+
+</androidx.constraintlayout.widget.ConstraintLayout>
